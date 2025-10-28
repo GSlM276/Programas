@@ -1,0 +1,132 @@
+/*
+ * CENTRALIZAÇÃO GERAL E ESTILO DE PÁGINA
+ */
+body {
+    display: flex;
+    flex-direction: column; /* Altera para coluna para que os títulos fiquem acima da tabela */
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte ligeiramente mais moderna */
+    background: #ffffff;
+    padding: 20px; /* Preenchimento para evitar que o conteúdo toque as bordas */
+    box-sizing: border-box; /* Garante que o padding não afete a altura total */
+}
+
+/* Estilo para Títulos */
+h1 {
+    color: #333;
+    margin-bottom: 0.2rem;
+    font-size: 2rem;
+}
+
+h2 {
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+
+/*
+ * ESTILO PRINCIPAL DA TABELA (IMC)
+ */
+.imc-table {
+    width: 100%;
+    max-width: 640px;
+    border-collapse: collapse;
+    /* margin: 0.5rem auto; <-- Removido 'auto' pois o body já centraliza */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Sombra mais suave e moderna */
+    border-radius: 8px; /* Cantos arredondados na tabela */
+    overflow: hidden; /* Garante que os cantos arredondados funcionem */
+    text-align: left; /* Alinhamento geral do texto para mais legibilidade */
+}
+
+/* Cabeçalho */
+.imc-table th {
+    background: #e9ecef; /* Fundo mais claro para o cabeçalho */
+    color: #333;
+    font-weight: 700;
+    padding: 0.8rem 1rem; /* Aumentei um pouco o padding */
+    border-bottom: 2px solid #dee2e6; /* Borda mais grossa */
+    font-size: 1rem;
+}
+
+/* Células do Corpo */
+.imc-table td {
+    padding: 0.8rem 1rem; /* Aumentei um pouco o padding */
+    border-bottom: 1px solid #e9ecef; /* Borda mais suave */
+    font-size: 0.95rem;
+    vertical-align: middle; /* Alinhamento vertical do conteúdo da célula */
+}
+
+/* Linha Par/Ímpar para legibilidade (zebra stripes) */
+.imc-table tbody tr:nth-child(odd) {
+    /*background-color: #f8f9fa;*/
+}
+.imc-table tbody tr:hover {
+    background-color: #f0f0f0; /* Efeito hover para interação */
+}
+
+/*
+ * ESTILOS ESPECÍFICOS DE FAIXAS E RISCO
+ */
+
+/* Linhas coloridas por faixa (gradiente suavizado) */
+.faixa-abaixo { background: linear-gradient(90deg, #fef4f4, #ffffff); }
+.faixa-normal  { background: linear-gradient(90deg, #e9faea, #ffffff); } /* Verde mais sutil */
+.faixa-sobre   { background: linear-gradient(90deg, #fff7e4, #ffffff); }
+.faixa-ob1     { background: linear-gradient(90deg, #ffece6, #ffffff); }
+.faixa-ob2     { background: linear-gradient(90deg, #ffebf1, #ffffff); }
+.faixa-ob3     { background: linear-gradient(90deg, #ffeded, #ffffff); } /* Vermelho mais forte e claro */
+
+/* Indicador de risco */
+.risk { 
+    font-size: 0.85rem; 
+    opacity: 0.9; 
+    display: block; /* Garante que o span ocupe a linha para estilização */
+    font-style: italic;
+    color: #6c757d; /* Cor neutra para risco */
+}
+
+/* Estilo para destacar o risco MUITO ALTO */
+.high-risk {
+    font-weight: 600;
+    color: #dc3545; /* Vermelho vibrante */
+}
+
+/* Estilo para destacar a faixa NORMAL */
+.risk.normal {
+    font-weight: 600;
+    color: #28a745; /* Verde de sucesso */
+    font-style: normal;
+}
+
+
+/*
+ * RESPONSIVIDADE
+ */
+@media (max-width: 680px) {
+    /* Ajusta a margem para a tabela não ficar grudada na lateral em telas menores */
+    .imc-table {
+        margin: 0 10px;
+        border-radius: 4px;
+        box-shadow: none; /* Remove a sombra em telas muito pequenas */
+    }
+}
+
+@media (max-width: 480px) {
+    .imc-table th, .imc-table td { 
+        padding: 0.6rem 0.8rem; 
+        font-size: 0.85rem; 
+        /* Alinha a classificação à esquerda e o IMC/Risco ao centro para economizar espaço */
+        text-align: left;
+    }
+    .imc-table td:nth-child(2) { /* IMC */
+        text-align: center;
+    }
+    .imc-table td:nth-child(3) { /* Risco */
+        font-size: 0.8rem;
+    }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Classificação IMC</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <h1>Calculadora de IMC</h1>
+    <h2>Tabela de Classificação do Índice de Massa Corporal (IMC)</h2>
+
+    <table class="imc-table" aria-label="Tabela de Classificação de Índice de Massa Corporal (IMC) por faixas de peso e risco.">
+        <thead>
+            <tr>
+                <th scope="col">Classificação</th>
+                <th scope="col">IMC (kg/m²)</th>
+                <th scope="col">Interpretação / Risco</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="faixa-abaixo">
+                <td>Abaixo do peso</td>
+                <td>&lt; 18,5</td>
+                <td><span class="risk">Possível desnutrição, anemia</span></td>
+            </tr>
+            <tr class="faixa-normal">
+                <td>Peso normal</td>
+                <td>18,5 – 24,9</td>
+                <td><span class="risk normal">Peso saudável (risco menor)</span></td>
+            </tr>
+            <tr class="faixa-sobre">
+                <td>Sobrepeso</td>
+                <td>25,0 – 29,9</td>
+                <td><span class="risk">Risco aumentado de doenças cardio-metabólicas</span></td>
+            </tr>
+            <tr class="faixa-ob1">
+                <td>Obesidade Grau I</td>
+                <td>30,0 – 34,9</td>
+                <td><span class="risk">Risco moderado</span></td>
+            </tr>
+            <tr class="faixa-ob2">
+                <td>Obesidade Grau II (Severa)</td>
+                <td>35,0 – 39,9</td>
+                <td><span class="risk">Risco alto</span></td>
+            </tr>
+            <tr class="faixa-ob3">
+                <td>Obesidade Grau III (Mórbida)</td>
+                <td>≥ 40,0</td>
+                <td><span class="risk high-risk">Risco muito alto</span></td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Realize o calculo aqui ..</p>
+    <br>
+    <section class="calculo">
+    <input type="number" name="txt1" id="txt1" placeholder="Altura"> 
+    <input type="number" name="txt2" id="txt2" placeholder=" Peso">
+    <input type="button" value="Calcular" onclick="clicar()">
+    <div id="res"></div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
