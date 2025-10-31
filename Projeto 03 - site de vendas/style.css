@@ -1,0 +1,26 @@
+body{
+    text-align: center;
+    background-color: rgb(0, 141, 59);
+}
+
+footer{
+    bottom: 0;
+        position: fixed;
+        width: 90%;
+        text-align: center;
+} 
+#inicio{
+    text-align: center;
+    padding: 5px;
+    border-spacing: 30px;
+    font-size: 20px;
+    display: inline-block;
+    
+
+}
+#inicio a {
+    border: solid 2px rgb(30, 0, 202);
+    color: blue;
+    border-radius: 30px;
+    padding: 10px;
+}
