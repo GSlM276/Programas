@@ -1,155 +1,245 @@
-/* ---------- GERAL ---------- */
+/* Definição de Variáveis CSS para Cores */
+:root {
+    --cor-fundo: #000000;
+    --cor-texto-principal: #ffffff;
+    --cor-card-fundo: #ffffff;
+    --cor-card-texto: #000000;
+    --cor-destaque: #1e00ca; /* Azul/Roxo vibrante */
+    --cor-sombra-clara: rgba(0, 0, 255, 0.5);
+    --cor-sombra-escura: rgba(30, 0, 202, 0.9);
+    --cor-rodape-fundo: #494949;
+    --cor-rodape-texto: #000000;
+    --cor-descricao: #666; /* Cinza mais suave para descrição */
+}
+
+/* ---------- GERAL E TIPOGRAFIA ---------- */
 body {
     text-align: center;
-    background-color: #494949;
+    background-color: var(--cor-fundo);
     font-family: "Poppins", Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #222;
+    color: var(--cor-texto-principal);
+    line-height: 1.6;
 }
 
-/* ---------- MENU ---------- */
+h1, h2, h3 {
+    margin: 1.5rem 0 0.5rem;
+    font-weight: 600;
+}
 
+main {
+    padding-bottom: 50px; /* Espaço antes do rodapé */
+}
+
+/* ---------- CABEÇALHO E NAVEGAÇÃO (CONTATOS) ---------- */
+header {
+    padding-top: 20px;
+}
+
+/* Lista de Contatos */
+#contatos {
+    list-style: none; /* Remove marcadores da lista */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px auto 40px;
+    padding: 0;
+    width: 90%;
+}
+
+#contatos a {
+    min-width: 140px;
+    border: 2px solid var(--cor-destaque);
+    color: var(--cor-texto-principal); /* Cor do texto alterada para branco para melhor contraste no fundo escuro */
+    border-radius: 30px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 0 10px rgba(30, 0, 202, 0.6);
+    text-decoration: none;
+    background-color: var(--cor-rodape-fundo); /* Fundo cinza */
+    transition: all 0.3s ease;
+    display: block; /* Garante que o link ocupe o padding */
+}
+
+#contatos a:hover {
+    background-color: var(--cor-destaque);
+    color: var(--cor-texto-principal);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--cor-destaque);
+}
 
 /* ---------- GRID DE PRODUTOS ---------- */
-#produtos {
+.grid-produtos { /* Renomeado para evitar ID duplicado */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 35px;
-    margin: 40px auto 80px;
-    width: 90%;
+    margin: 40px auto;
+    padding: 0 5%;
+}
+
+.secao-produtos h2 {
+    font-size: 2em;
+    color: var(--cor-destaque);
 }
 
 /* ---------- CARD DE PRODUTO ---------- */
 .card-produto {
     width: 280px;
-    background: #000;
-    color:  #494949;;
-    border: 1px solid #333;
+    background: var(--cor-card-fundo);
+    color: var(--cor-card-texto);
+    border: 1px solid #ddd; /* Borda mais suave */
     border-radius: 16px;
-    box-shadow: 0 0 15px rgba(0, 0, 255, 0.5);
+    box-shadow: 0 0 15px var(--cor-sombra-clara);
     padding: 20px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card-produto:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 0 25px rgba(30, 0, 202, 0.9);
+    transform: translateY(-8px) scale(1.03); /* Efeito um pouco mais notável */
+    box-shadow: 0 8px 25px var(--cor-sombra-escura);
 }
 
-/* ---------- IMAGEM ---------- */
+/* ---------- IMAGEM DO PRODUTO ---------- */
 .card-produto img {
-    width: 180px;
+    width: 100%;
+    max-width: 180px; /* Limita a largura dentro do card */
     height: 180px;
     object-fit: contain;
-    margin-bottom: 15px;
+    margin: 0 auto 15px;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: var(--cor-fundo);
     padding: 8px;
+    box-sizing: border-box; /* Garante que o padding não aumente o tamanho */
 }
 
-/* ---------- TEXTOS ---------- */
+/* ---------- TEXTOS E PREÇOS ---------- */
 .card-produto h3 {
-    font-size: 1.2em;
+    font-size: 1.3em;
     margin: 10px 0 5px;
 }
 
-.card-produto p {
-    font-size: 0.95em;
+.card-produto .descricao { /* Classe adicionada para a descrição */
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: var(--cor-descricao);
+}
+
+/* Estilo para Promoções */
+.card-produto.promocao .preco-antigo {
+    text-decoration: line-through;
+    color: #a0a0a0;
+    font-size: 0.9em;
+    margin-bottom: 0;
+}
+
+.card-produto.promocao .preco-atual {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #ff004c; /* Cor de destaque para o preço de promoção */
+    margin-top: 5px;
     margin-bottom: 20px;
-    color: #ddd;
 }
 
-/* ---------- BOTÃO DE DETALHES ---------- */
-.card-produto a {
-    display: inline-block;
-    padding: 10px 25px;
-    background-color: #1e00ca;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 500;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.card-produto a:hover {
-    background-color: #000;
-    transform: scale(1.1);
-}
-
-/* ---------- CONTATOS ---------- */
-#contatos {
+/* ---------- BOTÕES DO PRODUTO ---------- */
+.botoes-produto {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin: 40px auto;
-    width: 90%;
-    padding: 20px;
-    box-sizing: border-box;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto; /* Empurra os botões para o final do card */
 }
 
-#contatos a {
-    width: 140px;
-    border: 2px solid #1e00ca;
-    color: #000000;
-    border-radius: 30px;
+/* Estilo Padrão para Botões (Links) */
+.botoes-produto a {
+    display: block;
     padding: 10px 15px;
-    font-size: 18px;
-    font-weight: 500;
-    box-shadow: 0 0 10px rgba(30, 0, 202, 0.6);
     text-decoration: none;
-    background-color:  #494949;
-    transition: all 0.3s ease;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
-#contatos a:hover {
-    background-color: #1e00ca;
-    color: #fff;
-    transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+/* Botão de Detalhes */
+.btn-detalhes {
+    background-color: var(--cor-destaque);
+    color: var(--cor-texto-principal);
 }
 
-/* ---------- BOTÃO PADRÃO ---------- */
-button {
-    border-radius: 40px;
-    background-color: #1e00ca;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-button:hover {
+.btn-detalhes:hover {
     background-color: #000;
     transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Botão de Compra (Shopee) */
+.btn-shopee {
+    background-color: var(--cor-card-fundo);
+    color: var(--cor-destaque);
+    border: 2px solid var(--cor-destaque);
+}
+
+.btn-shopee:hover {
+    background-color: var(--cor-destaque);
+    color: var(--cor-texto-principal);
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(30, 0, 202, 0.4);
+}
+
+/* Se ainda precisar de um estilo para o elemento <button> */
+button {
+    /* Use as classes de link/botão para estilizar o <button> se necessário */
+    display: none; /* Removido no HTML melhorado */
 }
 
 /* ---------- RODAPÉ ---------- */
 footer {
     width: 100%;
     text-align: center;
-    background-color: #494949;
+    background-color: var(--cor-rodape-fundo);
     padding: 15px;
-    border-top: 1px solid #494949;
-    font-size: 14px;
-    bottom: 0;
-    color: #000;
+    font-size: 0.9rem;
+    color: var(--cor-rodape-texto);
+    margin-top: auto; /* Garante que ocupe o final da página */
+}
+
+footer a {
+    color: var(--cor-destaque);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 /* ---------- RESPONSIVIDADE ---------- */
-@media (max-width: 600px) {
-    #inicio, #contatos {
-        flex-direction: column;
+@media (max-width: 650px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    /* Ajuste para o grid de produtos em telas menores */
+    .grid-produtos {
         gap: 20px;
     }
 
     .card-produto {
-        width: 90%;
+        width: 100%; /* Ocupa a largura total (menos padding da grid) */
+        max-width: 350px; /* Limite para não ficar muito largo em tablets */
+    }
+
+    /* Altera contatos para empilhamento, se necessário, mas o gap já ajuda */
+    #contatos {
+        flex-direction: column;
+        gap: 15px;
     }
 }
