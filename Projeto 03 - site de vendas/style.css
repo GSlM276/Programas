@@ -256,14 +256,13 @@ section h2 {
 
 /* Botão de Detalhes */
 .btn-detalhes {
-    background-color: var(--cor-destaque);
-    color: var(--cor-texto-principal);
+    background-color: blue;
+    color: rgb(255, 255, 255);
 }
-
 .btn-detalhes:hover {
-    background-color: #000;
+    background-color: #2600ff;
     transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 10px rgba(114, 18, 18, 0.4);
 }
 
 /* Botão de Compra (Shopee) */
@@ -274,7 +273,7 @@ section h2 {
 }
 
 .btn-shopee:hover {
-    background-color: var(--cor-destaque);
+    background-color: red;
     color: var(--cor-texto-principal);
     transform: scale(1.05);
     box-shadow: 0 4px 10px rgba(30, 0, 202, 0.4);
